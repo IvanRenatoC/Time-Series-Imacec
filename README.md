@@ -13,7 +13,7 @@ El objetivo es generar estimaciones de corto plazo (3 meses) que permitan antici
 El IMACEC es un indicador que estima la evolución mensual del Producto Interno Bruto (PIB) en Chile. Es publicado por el Banco Central de Chile y representa aproximadamente un 90% del PIB. Se utiliza como un termómetro de la economía, permitiendo tomar decisiones informadas.
 https://www.bcentral.cl/areas/estadisticas/imacec
 
-##💡 Metodologías implementadas
+## 💡 Metodologías implementadas
 
 ### 1. Gradient Boosting (XGBoost)
 
