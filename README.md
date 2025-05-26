@@ -6,12 +6,12 @@ Este proyecto realiza una proyección mensual del IMACEC (Índice Mensual de Act
 	•	Gradient Boosting (XGBoost)
 	•	Modelado aditivo no lineal (Prophet)
 
-El objetivo es generar estimaciones de corto plazo (3 meses) que permitan anticipar el comportamiento de la economía chilena.
+El objetivo es generar estimaciones de corto plazo (3 meses) que permitan anticipar el comportamiento de la economía chilena, y dejar la base para un despliegue continuo en un reentrenamiento mensual para el algoritmo con mayor precisión (o con un error menor).
 
 ## 🔎 ¿Qué es el IMACEC?
 
 El IMACEC es un indicador que estima la evolución mensual del Producto Interno Bruto (PIB) en Chile. Es publicado por el Banco Central de Chile y representa aproximadamente un 90% del PIB. Se utiliza como un termómetro de la economía, permitiendo tomar decisiones informadas.
-https://www.bcentral.cl/areas/estadisticas/imacec
+Los detalles del indicador, sus variaciones y sectores de la economía que lo componen, se pueden encontrar en https://www.bcentral.cl/areas/estadisticas/imacec
 
 ## 💡 Metodologías implementadas
 
@@ -21,6 +21,7 @@ Modelo supervisado de tipo tree boosting, muy eficaz para problemas estructurado
 	•	Se transforma la serie de tiempo en un problema supervisado usando features de rezago (lag_1, lag_2, …, lag_12).
 	•	Se entrena el modelo para predecir el valor del mes siguiente.
 	•	Se aplica recursivamente para obtener los próximos 3 meses.
+ 	•	Se calcula el MAPE.
 
 Ventajas:
 	•	Captura relaciones no lineales y patrones complejos.
@@ -32,6 +33,7 @@ Modelo de descomposición aditiva desarrollado por Facebook:
 	•	Ajusta componentes de tendencia, estacionalidad y festividades (aunque en este caso no se utilizan días especiales).
 	•	No requiere ingeniería de features.
 	•	Muy útil para datos con patrones temporales y estacionales fuertes.
+ 	•	Se calcula el MAPE.
 
 Ventajas:
 	•	Fácil de interpretar.
@@ -48,3 +50,4 @@ El código genera gráficos con:
 	•	La serie original.
 	•	La proyección de los próximos 3 meses usando cada modelo.
 	•	Valores proyectados impresos en consola.
+ 	•	En base al MAPE, es el código ganador del challenge.
